@@ -12,13 +12,13 @@ print "waiting for 4 secs before sending username and password..."
 time.sleep(4)
 
 search = driver.find_element_by_id('Email')
-search.send_keys('dushyantsingh_na@srmuniv.edu.in')
+search.send_keys('your email id')
 search = driver.find_element_by_id('Password')
-search.send_keys('pass')
+search.send_keys('your account password')
 search = driver.find_element_by_id('signinBtn').click()
 
-print "waiting for 4 secs for giving browser time to load the homepage..."
-time.sleep(4)
+print "waiting for 10 secs for giving browser time to load the homepage..."
+time.sleep(10)
 
 tries = 0
 while tries < 10:
@@ -34,16 +34,19 @@ while tries < 10:
         tries += 1
 
 print "waiting for 10 secs for giving browser time to load the feedback page..."
-time.sleep(10)
+time.sleep(20)
 
 tries = 0
 while tries < 10:
 
     try:
-        search = driver.find_element_by_xpath("//td[@class='resetGridClass']").click()
-        for i in search:
-            if i.text == "Average":
-                i.click()
+        for menu in driver.find_elements_by_xpath(".//span[@title='-Select-']"):
+            menu.click()
+            time.sleep(1)
+            menu.send_keys(Keys.DOWN)
+            time.sleep(1)
+            menu.send_keys(Keys.RETURN)
+            time.sleep(1)
         break
 
     except Exception as e:
