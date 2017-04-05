@@ -13,9 +13,9 @@ print "waiting for 5 secs before sending username and password..."
 time.sleep(5)
 
 search = driver.find_element_by_id('Email')
-search.send_keys('dushyantsingh_na@srmuniv.edu.in')
+search.send_keys('your account email')
 search = driver.find_element_by_id('Password')
-search.send_keys('account password')
+search.send_keys('your account password')
 search = driver.find_element_by_id('signinBtn').click()
 
 print "waiting for 20 secs to give browser the time to load the homepage..."
@@ -54,22 +54,16 @@ while tries < 10:
         tries += 1
 
 print "filling the feedback form begins..."
-for i in xrange(17, 129):
-    search[i].click()
-    random_value = randint(1, 5)
-    while random_value > 0:
-        search[i].send_keys(Keys.ARROW_DOWN)
-        random_value -= 1
-    search[i].send_keys(Keys.ENTER)
-
-
-for i in xrange(144, 183):
-    search[i].click()
-    random_value = randint(1, 5)
-    while random_value > 0:
-        search[i].send_keys(Keys.ARROW_DOWN)
-        random_value -= 1
-    search[i].send_keys(Keys.ENTER)
+for i in xrange(1, 184):
+    try:
+        search[i].click()
+        random_value = randint(1, 5)
+        while random_value > 0:
+            search[i].send_keys(Keys.ARROW_DOWN)
+            random_value -= 1
+        search[i].send_keys(Keys.ENTER)
+    except:
+        pass
 
 print "submitting the feedback form..."
 search = driver.find_element_by_xpath("//td[@class='zc-button-row']/span/input[@value='Submit']").click()
