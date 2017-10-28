@@ -1,5 +1,6 @@
 # Automatic-Feedback
-Python program to fill the feedback form with just one command!
+Python program to fill the SRM University's teachers feedback form with just one command!
+Time to fill the form reduced from 10-15 mins to 1 min!
 
 ### Prerequisites before running the script
 1. Python
